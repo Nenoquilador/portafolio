@@ -1,29 +1,41 @@
 <?php
-// Configuración de tus documentos basada en tu carpeta
+// Listado de archivos actualizado según tu última captura
 $proyectos = [
     [
-        "titulo" => "Certificado de Finalización",
-        "desc" => "Certificación oficial de aprovechamiento académico.",
-        "archivo" => "Certificado.jpg",
-        "tag" => "Certificación"
+        "titulo" => "Proyecto Argos: Defensa EDR",
+        "desc" => "Implementación y análisis de soluciones Endpoint Detection and Response.",
+        "archivo" => "Proyecto_Argos_Defensa_EDR.pdf",
+        "tag" => "Seguridad Avanzada"
+    ],
+    [
+        "titulo" => "Caso de Negocio",
+        "desc" => "Análisis de viabilidad y estructuración de proyectos tecnológicos.",
+        "archivo" => "caso_de_negocio.pdf",
+        "tag" => "Gestión"
     ],
     [
         "titulo" => "Tabla Comparativa de Antivirus",
-        "desc" => "Análisis técnico de soluciones de seguridad informática y protección de datos.",
+        "desc" => "Evaluación detallada de software de protección contra malware.",
         "archivo" => "TABLA_DE_ANTIVIRUS.pdf",
         "tag" => "Ciberseguridad"
     ],
     [
-        "titulo" => "Interacción e Investigación con IA",
-        "desc" => "Memoria de consultas y procesos de aprendizaje asistidos por inteligencia artificial.",
+        "titulo" => "Interacción con IA",
+        "desc" => "Investigación sobre el uso de modelos de lenguaje en la educación.",
         "archivo" => "Preguntas_a_la_ia.pdf",
-        "tag" => "Investigación"
+        "tag" => "Innovación"
     ],
     [
-        "titulo" => "Documento de Soporte Académico",
-        "desc" => "Material complementario para la formación profesional.",
+        "titulo" => "Certificado Académico",
+        "desc" => "Acreditación de competencias y logros obtenidos.",
+        "archivo" => "Certificado.jpg",
+        "tag" => "Logro"
+    ],
+    [
+        "titulo" => "Documento Complementario",
+        "desc" => "Recursos adicionales de soporte para la materia.",
         "archivo" => "negro.pdf",
-        "tag" => "Académico"
+        "tag" => "Material"
     ]
 ];
 ?>
@@ -32,89 +44,148 @@ $proyectos = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional | Ernesto Gómez Romero</title>
+    <title>Ernesto Gómez | Portafolio Digital</title>
     <style>
-        /* Estilos integrados para que no falle al cargar archivos externos */
+        :root {
+            --primary: #6366f1; /* Morado/Azul juvenil */
+            --dark: #0f172a;    /* Fondo oscuro profesional */
+            --gray: #64748b;
+            --bg: #f8fafc;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f8f9fa;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
         }
+
         header {
-            border-bottom: 3px solid #004488;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
-        h1 { color: #004488; margin: 0; }
-        .subtitle { color: #666; font-size: 1.1em; }
-        
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+        }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
         }
+
         .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border: 1px solid rgba(226, 232, 240, 0.8);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+        }
+
         .tag {
-            background: #e1ecf4;
-            color: #39739d;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            font-weight: bold;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: #eef2ff;
+            padding: 5px 12px;
+            border-radius: 999px;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
-        .card h3 { margin-top: 0; color: #222; }
+
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
         .btn {
-            background-color: #004488;
+            background: var(--dark);
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 12px;
+            border-radius: 12px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
             margin-top: 20px;
+            transition: background 0.2s;
         }
-        .btn:hover { background-color: #002d5a; }
-        footer { margin-top: 50px; text-align: center; font-size: 0.9em; color: #888; }
+
+        .btn:hover {
+            background: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Ernesto Gómez Romero</h1>
-    <p class="subtitle">Portafolio de Evidencias Digitales | Ingeniería en Sistemas</p>
+    <p>Ingeniería en Sistemas | Universidad Justo Sierra</p>
 </header>
 
-<div class="grid">
-    <?php foreach ($proyectos as $p): ?>
-    <div class="card">
-        <div>
-            <span class="tag"><?php echo $p['tag']; ?></span>
-            <h3><?php echo $p['titulo']; ?></h3>
-            <p><?php echo $p['desc']; ?></p>
+<div class="container">
+    <div class="grid">
+        <?php foreach ($proyectos as $p): ?>
+        <div class="card">
+            <div>
+                <span class="tag"><?php echo $p['tag']; ?></span>
+                <h3><?php echo $p['titulo']; ?></h3>
+                <p><?php echo $p['desc']; ?></p>
+            </div>
+            <a href="/docs/<?php echo $p['archivo']; ?>" target="_blank" class="btn">Abrir Evidencia</a>
         </div>
-        <a href="/docs/<?php echo $p['archivo']; ?>" target="_blank" class="btn">Visualizar Evidencia</a>
+        <?php endforeach; ?>
     </div>
-    <?php endforeach; ?>
 </div>
 
 <footer>
-    <p>&copy; <?php echo date("Y"); ?> - Universidad Justo Sierra</p>
+    <p>Proyecto desarrollado para la materia de Ciberseguridad &bull; 2026</p>
 </footer>
 
 </body>
